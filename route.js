@@ -55,10 +55,11 @@ function translatePost(req, callback){
     });
   }
 
-  function clearList(){
+  function clearList(send){
     redis.del('favourites', function(err, reply) {
-    console.log(reply);
-});
+      console.log(reply);
+      send();
+    });
   }
 
 
